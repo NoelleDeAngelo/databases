@@ -1,4 +1,5 @@
 var db = require('../db');
+var headers = require('../cors');
 
 const queryPromise = function (q) {
   return new Promise((resolve, reject) => {
@@ -12,13 +13,33 @@ const queryPromise = function (q) {
   });
 };
 
-queryPromise('describe messages')
-  .then( (results) => {
-    console.log('results', results);
-  })
-  .catch( (error) => {
-    console.log('error', error);
-  });
+
+module.exports = {
+  getAll: function (res) {
+    queryPromise('SELECT * FROM messages')
+      .then( (results) => {
+        res.set(headers);
+        //console.log('results', results);
+        res.send(results);
+      })
+      .catch( (error) => {
+        //console.log('error', error);
+        // res.status(404).send(error);
+      });
+  }, // a function which produces all the messages
+  create: function (req, res) {
+    const query = `insert into messages (message, user, room) values ('${req.body.message}', '${req.body.user}', '${req.body.room}')`;
+    queryPromise(query)
+      .then( (results) => {
+        console.log('insert success results', results);
+        res.end();
+      })
+      .catch( (error) => {
+        //console.log('error', error);
+        // res.send(error);
+      });
+  } // a function which can be used to insert a message into the database
+};
 
 /*
 
@@ -30,7 +51,5 @@ queryPromise('describe messages')
 
 */
 
-module.exports = {
-  getAll: function () {}, // a function which produces all the messages
-  create: function () {} // a function which can be used to insert a message into the database
-};
+
+// console.log(module.exports.getAll());
