@@ -10,3 +10,14 @@ var mysql = require('mysql');
   // user: 'root', password: 'some_password_you_created_at_install'
 
 
+
+// module.exports connection = mysql.createConnection({
+//   host     : 'example.org',
+//   user     : 'bob',
+//   password : 'secret'
+// });
+
+
+
+
+
