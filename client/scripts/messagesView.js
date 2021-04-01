@@ -12,9 +12,9 @@ var MessagesView = {
         MessagesView.render(data[i]);
 
         // check duplication before adding
-        if (Rooms.existingRooms[(data[i]['roomname'])] === undefined) {
-          RoomsView.render(data[i]['roomname']);
-          Rooms.existingRooms[(data[i]['roomname'])] = true;
+        if (Rooms.existingRooms[(data[i]['room'])] === undefined) {
+          RoomsView.render(data[i]['room']);
+          Rooms.existingRooms[(data[i]['room'])] = true;
         }
 
       }

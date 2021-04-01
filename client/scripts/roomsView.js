@@ -28,7 +28,7 @@ var RoomsView = {
 
     App.fetch (function (data) {
       for (i = 0; i < data.length; i++) {
-        var roomname = data[i]['roomname'];
+        var roomname = data[i]['room'];
         if (roomname === null) {
           roomname = 'null';
         }

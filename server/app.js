@@ -1,5 +1,5 @@
 var express = require('express');
-// var cors = require('cors');
+var cors = require('cors');
 var db = require('./db');
 
 // Middleware
@@ -12,7 +12,7 @@ var app = express();
 module.exports.app = app;
 
 //all cors for entire app
-// app.use(cors());
+app.use(cors());
 
 // Set what we are listening on.
 app.set('port', 3000);

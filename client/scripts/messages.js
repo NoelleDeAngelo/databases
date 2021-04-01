@@ -2,9 +2,9 @@ var Messages = {
 
   create: function (username, text, room) {
     var obj = {};
-    obj.username = username;
-    obj.text = text;
-    obj.roomname = room;
+    obj.user = username;
+    obj.message = text;
+    obj.room = room;
     return obj;
   }
   /**

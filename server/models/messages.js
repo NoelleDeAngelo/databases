@@ -1,5 +1,5 @@
 var db = require('../db');
-var headers = require('../cors');
+//var headers = require('../cors');
 
 const queryPromise = function (q) {
   return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ module.exports = {
   getAll: function (res) {
     queryPromise('SELECT * FROM messages')
       .then( (results) => {
-        res.set(headers);
+        //res.set(headers);
         //console.log('results', results);
         res.send(results);
       })
