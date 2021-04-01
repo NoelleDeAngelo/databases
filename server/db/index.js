@@ -11,11 +11,13 @@ var mysql = require('mysql');
 
 
 
-// module.exports connection = mysql.createConnection({
-//   host     : 'example.org',
-//   user     : 'bob',
-//   password : 'secret'
-// });
+module.exports.connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  insecureAuth : true,
+  database : 'chat'
+});
 
 
 

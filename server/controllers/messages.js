@@ -1,8 +1,9 @@
 var models = require('../models');
-var database = require(..)
 
 module.exports = {
-  get: function (req, res) {}, // a function which handles a get request for all messages
+  get: function (req, res) {
+    res.send(models.getAll());
+  }, // a function which handles a get request for all messages
   post: function (req, res) {
     // convert req into SQLstring
     // var query =` INSERT ${req.body} TABLE messsge`
